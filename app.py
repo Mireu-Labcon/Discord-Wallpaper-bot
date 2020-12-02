@@ -30,11 +30,11 @@ async def on_message(message):
     user_id = message.author.id
     channel = message.channel
     
-    if message.content.startswith("!",call,"?"):
+    if message.content.startswith("!"+call+"?"):
         for i in range(num_1):
             print("맨션이 정상적으로 처리가 되었습니다!")
             print("맨션",num,"개 처리 완료 되었습니다")
-            await message.channel.send("<@",userID,">")
+            await message.channel.send("<@"+userID+">")
             num += 1
 
         if num == num_1:
@@ -48,7 +48,7 @@ async def on_message(message):
             print(num)
             num == 0 
             
-    elif message.content.startswith("!",call,"!"):
+    elif message.content.startswith("!"+call+"!"):
         print("맨션이 정상적으로 처리가 되었습니다!")
         print("맨션",num,"개 처리 완료 되었습니다")
         await message.channel.send("미르 콜 초기화 하었습니다")
@@ -56,9 +56,9 @@ async def on_message(message):
         num1 = 0
     
     elif message.content.startswith("!도움!"):
-        embed = Embed(title="맨션 도배 봇",description="미르을 부르기 위한 봇이므로 \n 잘못 하거나 장난으로 하는경우 \n :제5조:의 법칙으로 처벌 받을수도 있습니다 ", color=0x00aaaa)
-        embed.add_field(name="!미르?", value ="미르을 부르기 위한 커멘드 입니다" , inline=False,)
-        embed.add_field(name="!미르!", value ="재사용을 하기위해서는 반드시 !미르!을 하시고 사용해주십시오" ,inline=False,)
+        embed = Embed(title="맨션 도배 봇",description="주의 사항 작성 안함", color=0x00aaaa)
+        embed.add_field(name="!"+call+"?", value = call+"을 부르기 위한 커멘드 입니다" , inline=False,)
+        embed.add_field(name="!"+call+"!", value ="재사용을 하기위해서는 반드시 !"+call+"!을 하시고 사용해주십시오" ,inline=False,)
         msg = await message.channel.send(embed=embed)
 
 bot.run(token)
